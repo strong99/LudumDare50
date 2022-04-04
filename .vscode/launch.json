@@ -1,0 +1,41 @@
+{
+    "version": "0.2.0",
+    "compounds": [
+        {
+            "name": "Start server and chrome debugger",
+            "configurations": [
+                "Start server",
+                "Start debug - Chrome"
+            ],
+            "stopAll": true
+        }
+    ],
+    "configurations": [
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Start server",
+            "program": "${workspaceFolder}/node_modules/webpack/bin/webpack",
+            "reAttach": true,
+            "args": [
+                "serve",
+                "--mode=development"
+            ]
+        },
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Start debug - Chrome",
+            "url": "http://localhost:1234",
+            "reAttach": true,
+            "pathMappings": [
+                {
+                    "url": "webpack:///",
+                    "path": "${workspaceFolder}/"
+                }
+            ],
+            "console": "internalConsole",
+            "internalConsoleOptions": "openOnSessionStart"
+        }
+    ]
+}

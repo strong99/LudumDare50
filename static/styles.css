@@ -1,0 +1,312 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Wet+Paint&family=Rubik:wght@900&display=swap');
+
+html, body, #content {
+    padding: 0;
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    font-family: 'Rubik', sans-serif;
+    text-shadow: black -2px 0 1px;
+}
+
+button {
+    cursor: pointer;
+}
+
+#gui {
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+#gui > .widget:not(.visible) {
+    display: none;
+}
+
+#creative.widget {
+    position: absolute;
+    left: 50vw;
+    top: 0.5em;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: row;
+}
+
+button.active {
+    background: #222;
+    color: white;
+}
+
+#menu,
+#settings,
+#help,
+#credits {
+    color: white;
+    text-align: center;
+}
+
+#menu header,
+#settings header,
+#help header,
+#credits header {
+    font-family: 'Rubik Wet Paint', cursive;
+    margin-bottom: 1em;
+}
+
+#menu header {
+    position: fixed;
+    left: 50%;
+    top: 1em;
+    transform: translateX(-50%);
+}
+
+#menu header p, #menu header h1,
+#settings header p, #settings header h1,
+#help header p, #help header h1,
+#credits header p, #credits header h1 {
+    margin: 0;
+}
+
+#menu nav,
+#settings nav,
+#help nav,
+#credits nav {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1em;
+}
+
+#settings,
+#help,
+#credits {
+    margin: 0 calc(50vw - 10em);
+    width: 20em;
+    height: 100vh;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+#settings > div,
+#help > div,
+#credits > div {
+    height: 100%;
+    overflow: auto;
+    background-color: #000b;
+    margin-top: 2em;
+    margin-bottom: 1em;
+}
+
+#menu nav {
+    position: fixed;
+    left: 50%;
+    bottom: 1em;
+    transform: translateX(-50%);
+}
+
+#settings label {
+    display: block;
+    margin: 1em 0;
+}
+
+#menu nav button,
+#settings nav button,
+#help nav button,
+#credits nav button {
+    font-size: 2em;
+    font-family: inherit;
+    background-color: transparent;
+    border: none;
+    color: white;
+    width: 10em;
+    cursor: pointer;
+    text-shadow: black -2px 0 1px;
+}
+
+#menu nav button:hover,
+#settings nav button:hover,
+#help nav button:hover,
+#credits nav button:hover {
+    font-family: 'Rubik Wet Paint', cursive;
+    color: red;
+}
+
+#menu nav button:hover:before {
+    content: '> ';
+}
+
+#menu nav button:hover:after {
+    content: ' <';
+}
+
+.menuview{
+    background-image: url(menu.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#gameover.widget {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+
+    padding: 2em 3em;
+    background: #000d;
+    color: #ccc;
+    border-radius: 1em;
+}
+
+#gameover.widget .yourHighscore { 
+    color: white;
+}
+
+#gameover.widget .newHighscore.hidden { 
+    display: none;
+}
+
+#gameover.widget .prevHighscore { 
+    font-size: 0.9em;
+}
+
+#gameover.widget h1 {
+    padding: 0;
+    margin: 0 0 0.5em 0;
+    font-family: 'Rubik Wet Paint', cursive;
+}
+
+#gameover.widget button[data-action="menu"] {
+    background: #555;
+    color: white;
+}
+
+#gameover.widget button[data-action="restart"] {
+    background: darkred;
+    color: white;
+}
+
+#subtitleBar {
+    position: absolute;
+    left: 50vw;
+    top: 70vh;
+    min-width: 20em;
+    display: flex;
+    flex-direction: column;
+    background-color: #000a;
+    color: white;
+    border-radius: 1em;
+    transform: translate(-50%);
+    padding: 0.5em 1em;
+}
+
+#gameover.widget button[data-action="menu"],
+#gameover.widget button[data-action="restart"] {
+    border-radius: 1em;
+    font-family: inherit;
+    font-size: 1.1em;
+    border: none;
+    padding: 0.5em 1em;
+    text-shadow: -2px 0 1px black;
+}
+
+#gameover.widget button[data-action="restart"]:hover {
+    background: red;
+    color: white;
+    border-radius: 1em;
+}
+
+#gameover.widget button[data-action="menu"]:hover {
+    background: #333;
+    color: white;
+    border-radius: 1em;
+}
+
+#playerActions {
+    position: fixed;
+    bottom: 0;
+    left: 50vw;
+    transform: translate(-50%, -100%);
+}
+
+#playerActions > button:before { 
+    content: '';
+    display: block;
+    width: 40%;
+    height: 40%;
+    margin: auto;
+}
+
+#playerActions > button {
+    position: absolute;
+    top: -8em;
+    width: 6em;
+    height: 6em;
+    border: none;
+    background: transparent;
+    font-weight: bolder;
+    color: white;
+    text-shadow: 1px 0 1px black, -1px 0 1px black, 0 -1px 1px black, 0 1px 1px black;
+    padding: 0;
+    background-image: url('ui/abilityButton.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    transition: 200ms linear transform;
+    cursor: pointer;
+}
+
+#playerActions > button:focus-visible,
+#playerActions > button:hover {
+    background-image: url('ui/abilityButton-hover.png');
+    transform: scale(1.1);
+    outline: none;
+}
+
+#playerActions > button.active {
+    transform: scale(0.5);
+}
+
+#playerActions > button > span:first-child {
+    display: none;
+}
+
+#playerActions > button > span:last-child {
+    width: 100%;
+    position: absolute;
+    bottom: -0.75em;
+}
+
+#playerActions > button > span {
+    display: block;
+}
+
+#playerActions > button[data-action="teleport"] {
+    left: 7em;
+}
+
+#playerActions > button[data-action="teleport"]:before {
+    background-image: url('ui/teleport.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+#playerActions > button[data-action="suck"] {
+    right: 7em;
+}
+
+#playerActions > button[data-action="suck"]:before {
+    background-image: url('ui/fangs.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+#playerActions > button[data-action="zombify"] {
+    right: 14em;
+}
+
+#playerActions > button[data-action="zombify"]:before {
+    background-image: url('ui/zombified.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+}

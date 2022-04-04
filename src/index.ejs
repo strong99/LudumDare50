@@ -1,0 +1,154 @@
+<html>
+    <head>
+        <title>Delay the inevitable - Ludumdare 50</title>
+        <meta id="viewport" name="viewport"
+		content="width=device-width, minimum-scale=1.0, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no, viewport-fit=cover" />
+	    <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="stylesheet" type="text/css" href="styles.css" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="manifest" href="/site.webmanifest">
+        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+        <meta name="msapplication-TileColor" content="#da532c">
+        <meta name="theme-color" content="#ffffff">
+    </head>
+
+    <body>
+        <noscript>Please enable JavaScript in your web browser to view this page.</noscript>
+        <div id="content">
+            <canvas></canvas>
+            <div id="gui">
+                <div id="menu" class="widget">
+                    <header>
+                        <h1>Delay the inevitable</h1>
+                        <p>a Ludumdare 50 game</p>
+                    </header>
+                    <nav>
+                        <button id="startbtn">Start</button>
+                        <button id="settingsbtn">Settings</button>
+                        <button id="helpbtn">Help</button>
+                        <button id="creditsbtn">Credits</button>
+                    </nav>
+                </div>
+                <div id="settings" class="widget">
+                    <header>
+                        <h1>Settings</h1>
+                    </header>
+                    <div>
+                        <label data-type="audio">
+                            <span>Audio</span>
+                            <input type="range" id="audioVolume" min="0" max="100" step="10" />
+                        </label>
+                        <label data-type="editor">
+                            <span>Editor</span>
+                            <input type="checkbox" id="toggleEditor" />
+                        </label>
+                        <button id="resetBtn">Reset game</button>
+                    </div>
+                    <nav>
+                        <button data-state="menu">Menu</button>
+                    </nav>
+                </div>
+                <div id="help" class="widget">
+                    <header>
+                        <h1>Help</h1>
+                    </header>
+                    <div>
+                        <p>The game can be played by keyboard and mouse, though keyboard is favoured.</p>
+                        <h2>Keyboard</h2>
+                        <p>WASD: walk</p>
+                        <p>Q: teleport</p>
+                        <p>E: zombify</p>
+                        <p>SPACE: suck your victim</p>
+                        <h2>Mouse</h2>
+                        <p>Click on the location to go to</p>
+                        <p>Click on an ability to use it</p>
+                    </div>
+                    <nav>
+                        <button data-state="menu">Menu</button>
+                    </nav>
+                </div>
+                <div id="credits" class="widget">
+                    <header>
+                        <h1>Credits</h1>
+                    </header>
+                    <div>
+                        <h2>Game</h2>
+                        <p>Art lead Smith</p>
+                        <p>Art by Smith & Strong99</p>
+                        <p>Music & effects by Strong99</p>
+                        <p>Game code by Strong99</p>
+                        <h2>Libraries and frameworks</h2>
+                        <p>Game engine by PixiJs</p>
+                        <p>jQuery</p>
+                        <p>File-Saver</p>
+                        <h2>Tools</h2>
+                        <p>Typescript</p>
+                        <p>Visual Studio Code</p>
+                        <p>Adobe Photoshop</p>
+                        <p>Adobe Illustrator</p>
+                        <p>Audacity</p>
+                        <p>Krita</p>
+                        <p>Git</p>
+                        <p>Onenote</p>
+                        <p>Discord</p>
+                    </div>
+                    <nav>
+                        <button data-state="menu">Menu</button>
+                    </nav>
+                </div>
+                <div id="subtitleBar" class="widget">
+                    <p>Lorem ipsum</p>
+                    <button data-action="next">Next</button>
+                </div>
+                <div id="gameover" class="widget">
+                    <header>
+                        <h1>You died of hunger</h1>
+                    </header>
+                    <p>You survived for:</p>
+                    <p class="yourHighscore"></p>
+                    <p class="newHighscore"><span>It's a new Highscore!</span></p>
+                    <p class="prevHighscore"></p>
+                    <nav>
+                        <button data-action="restart">Restart</button>
+                        <button data-action="menu">Menu</button>
+                    </nav>
+                </div>
+                <div id="playerActions" class="widget">
+                    <button data-action="zombify"><span>Zombify</span><span>E</span></button>
+                    <button data-action="suck"><span>Suck</span><span>SPACE</span></button>
+                    <button data-action="teleport"><span>Teleport</span><span>Q</span></button>
+                </div>
+                <div id="creative" class="widget">
+                    <button data-action="door">Door</button>
+                    <button data-action="block">Block</button>
+                    <button data-action="unblock">Unblock</button>
+                    <select id="paintTemplate">
+                        <option value="road">road</option>
+                        <option value="water">water</option>
+                        <option value="dirt">dirt</option>
+                        <option value="grass">grass</option>
+                    </select>
+                    <button data-action="paint">Paint</button>
+                    <button data-action="remove">Remove</button>
+                    <button data-action="move">Move</button>
+                    <select id="entityTemplate">
+                        <option value="house_01">house #1</option>
+                        <option value="house_02">house #2</option>
+                        <option value="house_03">house #3</option>
+                        <option value="lantern_01">lantern #1</option>
+                        <option value="lantern_02">lantern #2</option>
+                        <option value="tree_01">tree #1</option>
+                        <option value="tree_02">tree #2</option>
+                        <option value="tree_03">tree #3</option>
+                    </select>
+                    <button data-action="place">Place</button>
+                    <button data-action="save">Save</button>
+                    <button data-action="load">Load</button>
+                    <button data-action="export">Export</button>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
